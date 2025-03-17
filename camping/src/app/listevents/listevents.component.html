@@ -1,0 +1,46 @@
+<div class="event-list">
+  <h2>Upcoming Events</h2>
+  <div *ngFor="let event of events" class="event-item">
+    <h3>{{ event.title }}</h3>
+    <p>{{ event.description }}</p>
+    <p><strong>Date:</strong> {{ event.date | date }}</p>
+    <p><strong>Location:</strong> {{ event.location.name }}</p>
+    <p><strong>Status:</strong> {{ event.status }}</p>
+
+    <div *ngIf="acceptedUsers[event.id]">
+      <strong>Accepted Users:</strong>
+      <ul>
+        <li *ngFor="let username of acceptedUsers[event.id]">
+          {{ username }}
+          <!-- Delete icon next to each user -->
+          <button *ngIf="isOrganisateur" (click)="deleteUserFromEvent(event.id, username)">
+            <i class="fa fa-trash"></i> Delete
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Conditional rendering for Organisateur role -->
+    <div *ngIf="!isOrganisateur">
+      <!-- Show 'Request to Join' button if the user has not accepted or requested to join the event -->
+      <button *ngIf="!userAcceptedRequests.has(event.id) && !userRequestedToJoin.has(event.id)" (click)="sendInvitationToEvent(event.id)">
+        Request to Join
+      </button>
+
+      <!-- Show 'Pending' button if the event is in 'Pending' state and not accepted -->
+      <button *ngIf="userPendingRequests.has(event.id) && !userAcceptedRequests.has(event.id)" disabled>Pending</button>
+
+      <!-- Show 'Accepted' button if the event has been accepted -->
+      <button *ngIf="userAcceptedRequests.has(event.id)" disabled>Accepted</button>
+
+      <!-- Show 'Requested to Join' button if the user has requested to join -->
+      <button *ngIf="userRequestedToJoin.has(event.id) && !userAcceptedRequests.has(event.id)" disabled>Requested to Join</button>
+
+    </div>
+
+    <!-- View Details Button -->
+    <button (click)="viewEventDetails(event.id)">
+      View Details
+    </button>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="event-detail-container">
+  <div *ngIf="isLoading" class="loading">
+    Loading event details...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div class="event-detail" *ngIf="!isLoading && !errorMessage && event">
+    <div class="event-header">
+      <h2>{{ event.title }}</h2>
+      <div class="event-meta">
+        <span class="event-date">{{ event.date | date: 'fullDate' }}</span>
+      </div>
+    </div>
+
+    <div class="event-body">
+      <div class="event-description">
+        <h3>Description</h3>
+        <p>{{ event.description }}</p>
+      </div>
+
+      <div class="location-section" *ngIf="event.location">
+        <h3>Emplacement</h3>
+        <div class="location-details">
+        
+
+          <!-- Map container -->
+          <div id="event-location-map" style="height: 400px; width: 100%; margin-top: 20px; border: 1px solid #ccc;"></div>
+
+          <!-- Button to force refresh the map -->
+          <button (click)="forceMapRefresh()" class="refresh-button">Refresh Map</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage && !event" class="not-found">
+    Event not found.
+  </div>
+</div>

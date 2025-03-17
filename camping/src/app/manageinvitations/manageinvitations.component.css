@@ -1,0 +1,102 @@
+.pending-invitation-list {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .no-invitation-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #888;
+    margin-top: 20px;
+  }
+  
+  .invitation-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .invitation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+    color: #007bff;
+  }
+  
+  .invitation-for {
+    font-size: 1.1em;
+    color: #555;
+  }
+  
+  .invitation-status {
+    font-size: 1em;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .invitation-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button[disabled] {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+  }
+  
+  .accept-btn {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .accept-btn:hover {
+    background-color: #218838;
+  }
+  
+  .decline-btn {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .decline-btn:hover {
+    background-color: #c82333;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  @media (max-width: 600px) {
+    .pending-invitation-list {
+      padding: 15px;
+    }
+  
+    .invitation-item {
+      padding: 10px;
+    }
+  }
+  

@@ -1,0 +1,155 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .event-list {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-list h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  /* Event item */
+  .event-item {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+  }
+  
+  .event-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Event title */
+  .event-item h3 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  /* Event details */
+  .event-item p {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  
+  /* Accepted users list */
+  .event-item ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .event-item ul li {
+    font-size: 1em;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  /* Status badge */
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Request to Join button */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button:enabled {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+  }
+  
+  button:enabled:hover {
+    background-color: #0056b3;
+  }
+  
+  button:enabled:active {
+    transform: scale(0.98);
+  }
+  
+  /* Status indicators */
+  button:disabled {
+    background-color: #f0f0f0;
+    color: #666;
+  }
+  
+  /* "Pending" button */
+  button[disabled]:nth-child(2) {
+    background-color: #ffc107;
+    color: #fff;
+  }
+  
+  /* "Accepted" button */
+  button[disabled]:nth-child(3) {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  /* "Requested to Join" button */
+  button[disabled]:nth-child(4) {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+
+  .delete-icon {
+    font-size: 18px;
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  
+  button {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: darkred;
+  }
+  
+  button i {
+    font-size: 16px;
+  }

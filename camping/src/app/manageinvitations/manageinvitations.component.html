@@ -1,0 +1,22 @@
+<div class="pending-invitation-list">
+    <h2>Pending Invitations</h2>
+    <div *ngIf="pendingInvitations.length === 0">
+      <p>No pending invitations.</p>
+    </div>
+    
+    <div *ngFor="let invitation of pendingInvitations" class="invitation-item">
+      <h3>{{ invitation.eventTitle }}</h3>
+      <p>Invitation for: {{ invitation.userName }}</p>
+      <p>Status: {{ invitation.status }}</p>
+  
+      <div class="invitation-actions">
+        <button (click)="acceptInvitation(invitation.invitationId)" [disabled]="invitation.status !== 'PENDING'">
+          Accept
+        </button>
+        <button (click)="declineInvitation(invitation.invitationId)" [disabled]="invitation.status !== 'PENDING'">
+          Decline
+        </button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,29 @@
+<nav class="navbar">
+    <div class="navbar-brand">.
+      
+      <a  *ngIf="isAuthenticated" routerLink="/events">Home</a>
+    </div>
+  
+    <div class="navbar-links">
+      <!-- If the user is authenticated, show the nav links -->
+      <div *ngIf="isAuthenticated">
+        <a routerLink="/profile">Profile</a>
+        <a routerLink="/events">Events</a>
+        <a routerLink="/list">Marketpalce</a>
+
+        <!-- Show 'Pending Requests' for Organisateur users -->
+        <a *ngIf="isOrganisateur" routerLink="/pending">Pending Requests</a>
+        <a *ngIf="isOrganisateur" routerLink="/events/add">Add Event</a>
+        <a *ngIf="isOrganisateur" routerLink="/addproduct">Add Product</a>
+
+        <button (click)="logout()">Logout</button>
+      </div>
+  
+      <!-- If the user is not authenticated, show login/signup links -->
+      <div *ngIf="!isAuthenticated">
+        <a routerLink="/login">Login</a>
+        <a routerLink="/signup">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+  

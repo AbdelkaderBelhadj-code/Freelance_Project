@@ -1,0 +1,30 @@
+<div class="product-container">
+    <div *ngFor="let product of products" class="product-card">
+        <img *ngIf="product.photo" [src]="'data:image/jpeg;base64,' + product.photo" alt="{{ product.name }}" class="product-img">
+        <h3>{{ product.name }}</h3>
+        <p class="price">Price: ${{ product.price }}</p>
+        <p>{{ product.description }}</p>
+
+        <!-- Show reservation status only if user is NOT an "Organisateur" -->
+        <ng-container *ngIf="userRole !== 'Organisateur'">
+            <p *ngIf="product.reservedByCurrentUser" class="reserved-label">
+                ✅ Already Reserved
+            </p>
+
+            <!-- Show "Reserve" button only if the product is NOT reserved -->
+            <button *ngIf="!product.reservedByCurrentUser" (click)="reserveProduct(product.id)" class="btn btn-primary">
+                Reserve
+            </button>
+
+            <!-- Show "Cancel Reservation" button if already reserved -->
+            <button *ngIf="product.reservedByCurrentUser" (click)="cancelReservation(product.id)" class="btn btn-danger">
+                Cancel Reservation
+            </button>
+        </ng-container>
+
+        <!-- Show DELETE button only for Organisateur -->
+        <button *ngIf="userRole === 'Organisateur'" (click)="deleteProduct(product.id)" class="btn btn-danger">
+            🗑 Delete Product
+        </button>
+    </div>
+</div>

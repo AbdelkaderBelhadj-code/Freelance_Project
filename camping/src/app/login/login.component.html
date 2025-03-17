@@ -1,0 +1,93 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="modal-title" id="exampleModalLabel">
+            <span style="font-size: 25px;font-weight:700">Forgot your password?</span><br>
+            <small>Please provide your E-mail, we will send the reset link</small>
+          </p>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="resetForm">
+            <div class="form-group">
+              <input formControlName="email" type="email" class="form-control" placeholder="Email" />
+            </div>
+          </form>
+          <small *ngIf="resetForm.get('email')?.invalid && resetForm.get('email')?.touched" class="text-danger">
+            * Valid email is required
+          </small>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="confirmToSend()">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="wrapper">
+      <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
+          <div class="container">
+              <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+                  <div class="col mx-auto">
+                      <div class="card mb-0">
+                          <div class="card-body">
+                              <div class="p-4">
+                                  <div class="mb-3 text-center">
+                                </div>
+                                  <div class="text-center mb-4">
+                                      <h5 class="">Camping Organisation                                     </h5>
+                                      <p class="mb-0">Please log in to your account</p>
+                                  </div>
+                                  <div class="form-body">
+                                      <form class="row g-3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                                          <div class="col-12">
+                                              <label for="inputEmailAddress" class="form-label">Username</label>
+                                              <input formControlName="username" class="form-control" id="inputEmailAddress" type="text" placeholder="Username" required>
+                                              <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*Username is required*</small>
+                                          </div>
+                                          <div class="col-12">
+                                              <label for="inputChoosePassword" class="form-label">Password</label>
+                                              <div class="input-group" id="show_hide_password">
+                                                  <input [type]="type" formControlName="password" class="form-control border-end-0" id="inputChoosePassword" placeholder="Enter Password">
+                                                  <button type="button" (click)="hideShowPass()" class="input-group-text bg-transparent"><a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a> <i class='bx {{eyeIcon}}'></i></button>
+                                              </div>
+                                              <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" class="text-danger">*Password is required*</small>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <div class="form-check form-switch">
+                                                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                                                  <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-6 text-end">	<a id="forgot" data-bs-toggle="modal" data-bs-target="#exampleModal">Forgot Password ?</a>
+                                          </div>
+                                          <div class="col-12">
+                                              <div class="d-grid">
+                                                  <button type="submit" class="btn btn-primary">Sign in</button>
+                                              </div>
+                                              <div class="col-12">
+                                                &nbsp;
+                                                <div class="text-center ">
+                                                    <p class="mb-0">Don't have an account yet? <a routerLink="/signup">Sign up here</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+  
+                                          </div>
+                                      </form>
+                                  </div>
+                                 
+                                 
+  
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!--end row-->
+          </div>
+      </div>
+  </div>
